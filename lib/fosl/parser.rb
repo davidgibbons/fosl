@@ -157,8 +157,8 @@ class FOSL::Parser
   #
   # Example:
   #   lsof("-i :443")
-  def lsof(args="")
-    output = `lsof -F PcfntT0L #{args}`
+  def lsof(args="", command="lsof")
+    output = `#{command} -F PcfntT0L #{args}`
     # Should we raise an exception, or just return empty results, on failure?
     if $?.exitstatus != 0
       raise "lsof exited with status #{$?.exitstatus}"
